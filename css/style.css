@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Rubik:wght@400;500&display=swap');
+
+:root {
+  --text1: 'Merriweather', serif;
+  --text2: 'Rubik', sans-serif;
+  --background: white;
+  --text: black;
+}
+
+html {
+  background: #fff;
+  transition: 0.5s;
+}
+
+html[dark] {
+  background-color: #242424;
+  color: #fff;
+}
+
+html[dark] .btn a {
+  color: #fff;
+  transition: 0.5s;
+}
+
+html label::after {
+  font-family: var(--text2);
+  content: attr(data-content);
+  position: absolute;
+  right: 50px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: var(--text2);
+  padding: 0 20px;
+}
+
+img {
+  width: 100%;
+}
+
+/* menu */
+.nav {
+  display: flex;
+  max-width: 1250px;
+  margin: 0 auto;
+  height: 120px;
+  position: relative;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav h3 {
+  font-weight: 500;
+  font-size: 1.4em;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Conteúdo principal */
+main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap-reverse;
+  max-width: 1250px;
+  margin: 0 auto;
+  position: relative;
+  height: calc(100vh - 240px);
+}
+
+.content h1 {
+  font-family: var(--text1);
+  font-size: 4em;
+  font-weight: 900;
+  line-height: 5rem;
+  max-width: 520px;
+}
+
+#sublinhado {
+  position: relative;
+  font-family: var(--text1);
+  font-size: 1em;
+  font-weight: 900;
+  line-height: 5rem;
+}
+
+#sublinhado::after {
+  content: '';
+  width: 100%;
+  height: 24px;
+  background-image: url(../images/sublinhado.svg);
+  position: absolute;
+  left: 0;
+  bottom: -20%;
+}
+
+.content p {
+  font-family: var(--text2);
+  font-size: 1.125em;
+  margin: 30px 0;
+  font-weight: 400;
+  max-width: 700px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.btn a {
+  text-decoration: none;
+  font-family: var(--text2);
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.btn a:last-child {
+  color: #3c184e;
+}
+
+.important {
+  background: #713fff;
+  color: white;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 40px;
+  padding: 12px 32px;
+}
+
+.important:hover {
+  transition: 0.7s;
+  opacity: 0.7;
+}
+
+.ilustracao {
+  width: 50%;
+  position: relative;
+  bottom: 1020px;
+}
+
+.img-cat {
+  position: absolute;
+  bottom: -240px;
+  left: 10%;
+  height: 100%;
+}
+
+.img-cat img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.img-cat img:hover {
+  animation: cat-move 1s ease 1 normal forwards;
+}
+
+@keyframes cat-move {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 0;
+    transform: translateY(-250px);
+  }
+
+  38% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  55% {
+    animation-timing-function: ease-in;
+    transform: translateY(-65px);
+  }
+
+  72% {
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+
+  81% {
+    animation-timing-function: ease-in;
+    transform: translateY(-28px);
+  }
+
+  90% {
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+
+  95% {
+    animation-timing-function: ease-in;
+    transform: translateY(-8px);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+}
+
+/* Switch Dark Mode */
+.switch {
+  position: absolute;
+  left: 520px;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #713fff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #713fff;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(12px);
+  -ms-transform: translateX(12px);
+  transform: translateX(12px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Responsividade */
+@media (max-width: 1112px) {
+  html {
+    font-size: 85%;
+  }
+
+  .nav {
+    justify-content: space-between;
+  }
+
+  .switch {
+    position: relative;
+    left: 0;
+  }
+
+  main {
+    justify-content: center;
+    height: calc(100vh - 120px);
+  }
+
+  .ilustracao {
+    position: relative;
+    top: 120px;
+    margin-bottom: 0px;
+  }
+
+  .img-cat {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .img-cat img {
+    content: url('../images/cat-mobile.png');
+    max-width: 400px;
+    min-width: 250px;
+    position: relative;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 485px) {
+  .content h1 {
+    margin-top: 30px;
+    max-width: 370px;
+    font-size: 3em;
+    line-height: 2rem;
+  }
+
+  #sublinhado::after {
+    bottom: -35%;
+  }
+}
+
+@media (max-width: 370px) {
+  .content h1 {
+    font-size: 2.5em;
+    line-height: 1rem;
+  }
+
+  .content p {
+    margin: 15px 0 30px;
+  }
+
+  #sublinhado::after {
+    bottom: -40%;
+  }
+}
